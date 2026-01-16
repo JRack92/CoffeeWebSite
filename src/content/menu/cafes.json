@@ -1,0 +1,22 @@
+[
+  {
+    "id": "tinto-motero",
+    "nombre": "Tinto Clásico (Gasolina)",
+    "descripcion": "Nuestro tinto de la casa, carga rápida para arrancar el día. Café santandereano seleccionado.",
+    "precio": 3500,
+    "categoria": "cafe",
+    "imagen": "https://res.cloudinary.com/demo/image/upload/v1/coffee-sample.jpg",
+    "destacado": false,
+    "etiquetas": ["Clásico", "Sin Azúcar"]
+  },
+  {
+    "id": "cappuccino-racer",
+    "nombre": "Cappuccino Racer",
+    "descripcion": "Espresso doble con leche texturizada, ideal para una parada técnica con estilo.",
+    "precio": 7500,
+    "categoria": "cafe",
+    "imagen": "https://res.cloudinary.com/demo/image/upload/v1/cappuccino-sample.jpg",
+    "destacado": true,
+    "etiquetas": ["Leche Entera", "Arte Latte"]
+  }
+]

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  website:
+    container_name: cafe_racer_web
+    build: .
+    restart: always # Si se va la luz y vuelve, el sitio arranca solo
+    ports:
+      - "80:80" # El puerto 80 del LXC será tu web
+    environment:
+      - NODE_ENV=production

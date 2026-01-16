@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography"; /* <--- Agrega esta línea */
+
+/* Aquí puedes agregar fuentes personalizadas más adelante */
+@theme {
+  --font-display: "Oswald", "sans-serif"; /* Ejemplo de fuente motera */
+}

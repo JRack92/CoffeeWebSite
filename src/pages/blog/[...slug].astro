@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { render } from 'astro:content'; // Importamos el renderizador nuevo de Astro 5
+
+// 1. Esta función le dice a Astro qué páginas debe generar al compilar
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  
+  return posts.map(post => {
+    // TRUCO: Quitamos la extensión (.md) del ID para tener una URL limpia
+    const slugLimpio = post.id.replace(/\.[^/.]+$/, ""); 
+
+    return {
+      params: { slug: slugLimpio }, // Usamos el slug limpio
+      props: { post },
+    };
+  });
+}
+// 2. Obtenemos los datos del post actual
+const { post } = Astro.props;
+// 3. Renderizamos el contenido Markdown a HTML
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <a href="/" class="text-amber-500 hover:text-amber-400 mb-6 inline-block font-bold">
+      ← Volver al Inicio
+    </a>
+
+    {post.data.image && (
+      <img 
+        src={post.data.image} 
+        alt={post.data.title} 
+        class="w-full h-96 object-cover rounded-xl shadow-2xl mb-8"
+      />
+    )}
+
+    <header class="mb-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4 font-display">
+        {post.data.title}
+      </h1>
+      <div class="flex justify-center gap-4 text-slate-400 text-sm">
+        <span>📅 {post.data.date.toLocaleDateString()}</span>
+        <span>✍️ {post.data.author}</span>
+      </div>
+    </header>
+
+    <article class="prose prose-invert prose-lg mx-auto prose-a:text-amber-500 hover:prose-a:text-amber-400">
+      <Content />
+    </article>
+  </main>
+</Layout>
