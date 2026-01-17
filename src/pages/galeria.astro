@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhotoGallery from '../components/gallery/PhotoGallery.tsx'; // Importamos el componente React
+import { getCollection } from 'astro:content';
+
+// 1. Obtenemos todos los álbumes
+const albums = await getCollection('gallery');
+
+// 2. Para este ejemplo, vamos a unir TODAS las fotos de todos los álbumes en una sola gran galería.
+// (Más adelante podrías hacer páginas por álbum si prefieres)
+const todasLasFotos = albums.flatMap(album => album.data.fotos);
+---
+
+<Layout title="Galería">
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4 font-display">
+        Nuestras Rodadas
+      </h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+        Momentos capturados en la carretera. La comunidad Cafe Racer en acción.
+      </p>
+    </div>
+
+    <PhotoGallery client:visible images={todasLasFotos} />
+
+  </main>
+</Layout>

@@ -1,8 +1,10 @@
 ---
-import "../styles/global.css"; // Asegurate de crear este archivo (ver punto 4)
+import "../styles/global.css";
+import Header from "../components/common/Header.astro";
+import Footer from "../components/common/Footer.astro";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -10,15 +12,23 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Cafetería Motera y Punto de Encuentro" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Cafe Racer</title>
-	</head>
-	<body class="bg-slate-900 text-slate-100 font-sans">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Cafetería Motera y Punto de Encuentro" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Cafe Racer</title>
+  </head>
+  <body
+    class="bg-slate-900 text-slate-100 font-sans flex flex-col min-h-screen"
+  >
+    <Header />
+
+    <div class="flex-grow">
+      <slot />
+    </div>
+
+    <Footer />
+  </body>
 </html>
