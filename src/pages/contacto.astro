@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contacto y Ubicación">
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    <div class="text-center mb-16">
+      <h1
+        class="text-4xl md:text-5xl font-bold text-slate-100 mb-4 font-display"
+      >
+        Punto de Encuentro
+      </h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+        ¿Tienes una duda o quieres reservar para tu club? Aquí estamos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div
+          class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-xl"
+        >
+          <h2 class="text-2xl font-bold text-amber-500 mb-6">Coordenadas</h2>
+
+          <div class="space-y-4 text-slate-300">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">📍</span>
+              <div>
+                <p class="font-bold text-white">Sede Principal</p>
+                <p>Calle de las Motos #55-12</p>
+                <p>Bucaramanga, Santander</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">⏰</span>
+              <div>
+                <p class="font-bold text-white">Horarios de Taller & Café</p>
+                <p>Lun - Vie: 2:00 PM - 10:00 PM</p>
+                <p>Sáb - Dom: 8:00 AM - 11:00 PM</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">📞</span>
+              <div>
+                <p class="font-bold text-white">Reservas</p>
+                <p>+57 300 123 4567</p>
+                <p>contacto@caferacer.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="rounded-2xl overflow-hidden border border-slate-700 shadow-xl h-80 relative group"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63320.41726002937!2d-73.16799657683526!3d7.119335520967398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e68157af7fdb967%3A0x6d69ad19b78a05c4!2sBucaramanga%2C%20Santander!5e0!3m2!1ses!2sco!4v1705600000000!5m2!1ses!2sco"
+            width="100%"
+            height="100%"
+            style="border:0; filter: grayscale(100%) invert(90%) contrast(80%);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+          <div
+            class="absolute inset-0 bg-amber-500/10 pointer-events-none group-hover:bg-transparent transition-colors"
+          >
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-3xl font-bold text-white mb-4">Nuestra Historia</h2>
+          <div class="prose prose-invert text-slate-300">
+            <p>
+              Nacimos en el corazón de Santander con una idea simple:
+              <span class="text-amber-500 font-bold"
+                >Las motos y el buen café comparten la misma alma.</span
+              >
+            </p>
+            <p>
+              Cafe Racer Experience no es solo un lugar para comer; es un
+              refugio para aquellos que encuentran paz en la carretera.
+              Inspirados en la cultura nórdica y la estética del motociclismo
+              clásico, hemos creado un espacio donde puedes parquear tu máquina,
+              pedir un café de origen santandereano y planear tu próxima ruta.
+            </p>
+            <p>
+              Ya sea que vengas en una 125cc o en una 1200cc, aquí todos
+              hablamos el mismo idioma.
+            </p>
+          </div>
+        </section>
+
+        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+          <h3 class="text-xl font-bold text-white mb-4">Envíanos un mensaje</h3>
+          <form class="space-y-4">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-slate-400 mb-1"
+                >Nombre / Road Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                placeholder="Ej: Juan El Rápido"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-slate-400 mb-1"
+                >Correo Electrónico</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500"
+                placeholder="juan@ruta.com"
+              />
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-slate-400 mb-1"
+                >Mensaje</label
+              >
+              <textarea
+                id="message"
+                rows="4"
+                class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500"
+                placeholder="¿Cuándo es la próxima rodada?"></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-3 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
